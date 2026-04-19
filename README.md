@@ -7,6 +7,8 @@
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Skill-blueviolet)](https://claude.ai/code)
 [![AgentSkills](https://img.shields.io/badge/AgentSkills-Standard-green)](https://agentskills.io)
 
+**语言 / Language**：[English](README_EN.md) | 简体中文
+
 基于传统相术的图片分析技能，支持面相、手相、骨相、体相四大类相术分析
 
 ⚠️ **本分析仅供文化参考和娱乐，不宜迷信。现代科学对相术的预测能力尚无定论。**
@@ -329,7 +331,7 @@ kanxiang/
 
 ---
 
-MIT License © [Your Name](https://github.com/yourusername)
+MIT License © [timerzz](https://github.com/timerzz/kanxiang)
 
 **最后更新**：2026-04-19
 **技能版本**：1.0.0
