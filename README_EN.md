@@ -9,9 +9,10 @@
 
 **Language**：[English](README_EN.md) | [简体中文](README.md)
 
-An image analysis skill based on traditional Chinese physiognomy, supporting four major categories: facial reading (Mianxiang), palmistry (Shouxiang), bone structure reading (Guxiang), and body physiognomy (Tixiang).
+This repository is a collection of two physiognomy skills:
 
-> This repository is a skill collection: `skills/human-physiognomy/` (human physiognomy, documented in this README) and `skills/cat-physiognomy/` (cat physiognomy).
+- **`human-physiognomy`**: for humans — image analysis based on traditional Chinese physiognomy, covering facial reading (Mianxiang), palmistry (Shouxiang), bone reading (Guxiang), and body physiognomy (Tixiang)
+- **`cat-physiognomy`**: for cats — upload cat photos, generate a fun interpretive poster grounded in classical cat-lore texts
 
 ⚠️ **This analysis is for cultural reference and entertainment only. Modern science has not reached a consensus on the predictive ability of physiognomy.**
 
@@ -21,24 +22,30 @@ An image analysis skill based on traditional Chinese physiognomy, supporting fou
 
 ## Installation
 
-Install with the [skills CLI](https://skills.sh) (`npx skills`). This repository is a skill collection containing `human-physiognomy` (human physiognomy, documented in this README) and `cat-physiognomy` (cat physiognomy):
+Install with the [skills CLI](https://skills.sh) (`npx skills`). The two skills in this repository can be installed together or individually:
 
 ```bash
-# Install to current project (auto-detects installed agents, e.g. Claude Code)
-npx skills add timerzz/kanxiang --skill human-physiognomy
+# Install to current project (auto-detects installed agents; omit --skill to pick interactively)
+npx skills add timerzz/kanxiang
 
-# Install globally (available for all projects)
-npx skills add timerzz/kanxiang --skill human-physiognomy -g
+# Install only the cat skill, globally
+npx skills add timerzz/kanxiang --skill cat-physiognomy -g
 
 # Target a specific agent
 npx skills add timerzz/kanxiang --skill human-physiognomy -a opencode
 ```
 
 Notes:
-- Omitting `--skill` opens an interactive picker where you can select all skills in this repo
 - At the install prompt choose **Symlink** so skills stay in sync with the repo, or **Copy** for independent copies
 - The repo must be pushed to GitHub and public; before that, install from a local path instead: `npx skills add /path/to/kanxiang`
-- Management commands: `npx skills list` to view, `npx skills update` to update, `npx skills remove human-physiognomy` to uninstall
+- Management commands: `npx skills list` to view, `npx skills update` to update, `npx skills remove <skill-name>` to uninstall
+
+### Skills in This Repository
+
+| Skill | Purpose | Input | Output |
+|-------|---------|-------|--------|
+| [`human-physiognomy`](skills/human-physiognomy/SKILL.md) | For humans: face, palm, bone and body reading per classic texts such as 《麻衣神相》 and 《冰鉴》 | Face / palm / bone / full-body photos | Markdown report (personality, fortune, advice) |
+| [`cat-physiognomy`](skills/cat-physiognomy/SKILL.md) | For cats: identify apparent traits and interpret them per classical cat-lore notes such as 《猫苑》 and 《猫乘》 | One or more cat photos | 3:4 torn-paper collage poster (annotated parts) |
 
 ### Requirements
 - **Node.js 22.20+** (required by the skills CLI, [installation guide](https://nodejs.org))
@@ -66,7 +73,12 @@ Notes:
    The skill will automatically recognize the photo type and perform analysis
    ```
 
-### Supported Analysis Types
+3. **For your cat**: upload cat photo(s) and ask for a cat reading — this invokes `cat-physiognomy`, and the output is a poster:
+   ```
+   Give my cat a reading and make a poster [upload cat photo]
+   ```
+
+### Supported Analysis Types (human-physiognomy)
 
 | Type | Description | Photo Requirements |
 |------|-------------|-------------------|
@@ -194,6 +206,28 @@ Kanxiang Skill ❯ # Physiognomy Analysis Report
 - Maintain moderate exercise, avoid prolonged sitting
 - Recommend flexibility training
 ```
+
+---
+
+### Example 4: Cat Reading (cat-physiognomy)
+
+> Input: `Give my cat a reading and make a poster [upload cat photo]`
+
+The cat skill produces a poster rather than a text report:
+
+```
+User ❯ Give my cat a physiognomy reading and make a poster
+[Upload cat photo]
+
+Cat Physiognomy Skill ❯ Generated a 3:4 torn-paper collage poster:
+  Center = cat photo cutout (face shape, eye color, coat pattern and pose preserved)
+  Paper notes (illustrative):
+    金眸生辉 (golden eyes aglow)｜classical saying "金眼夜明灯" — a bright, spirited omen
+    头面贵圆 (rounded head and face)｜classics value a rounded head and face
+  Small line at the bottom: 古籍趣味解读，仅供娱乐 (classical-text fun reading, entertainment only)
+```
+
+Note: the cat skill only interprets what is actually visible in the photos — apparent coat/breed traits, markings and posture. It makes no claims about pedigree, personality, health, lifespan or mousing ability. All readings follow the [classical cat-lore notes](skills/cat-physiognomy/references/).
 
 ---
 

@@ -9,9 +9,10 @@
 
 **语言 / Language**：[English](README_EN.md) | 简体中文
 
-基于传统相术的图片分析技能，支持面相、手相、骨相、体相四大类相术分析
+本仓库是看相技能合集，收录两个技能：
 
-> 本仓库是技能集合：`skills/human-physiognomy/`（给人看相，本 README 所述）与 `skills/cat-physiognomy/`（给猫看相）。
+- **`human-physiognomy`**：给人看相——基于传统相术的图片分析，支持面相、手相、骨相、体相四大类
+- **`cat-physiognomy`**：给猫看相——上传猫咪照片，按古籍相猫说法生成趣味解读海报
 
 ⚠️ **本分析仅供文化参考和娱乐，不宜迷信。现代科学对相术的预测能力尚无定论。**
 
@@ -21,24 +22,30 @@
 
 ## 安装
 
-使用 [skills CLI](https://skills.sh)（`npx skills`）安装。本仓库是技能集合，含 `human-physiognomy`（给人看相，本 README 所述）与 `cat-physiognomy`（给猫看相）两个技能：
+使用 [skills CLI](https://skills.sh)（`npx skills`）安装，本仓库的两个技能可一起或单独安装：
 
 ```bash
-# 安装到当前项目（自动检测已安装的 agent，如 Claude Code）
-npx skills add timerzz/kanxiang --skill human-physiognomy
+# 安装到当前项目（自动检测已安装的 agent；不加 --skill 时交互勾选技能）
+npx skills add timerzz/kanxiang
 
-# 安装到全局（所有项目都能用）
-npx skills add timerzz/kanxiang --skill human-physiognomy -g
+# 只装给猫看相，并装到全局
+npx skills add timerzz/kanxiang --skill cat-physiognomy -g
 
-# 指定目标 agent
+# 指定目标 agent 安装
 npx skills add timerzz/kanxiang --skill human-physiognomy -a opencode
 ```
 
 说明：
-- 不带 `--skill` 时进入交互选择，可勾选本仓库全部技能
 - 交互安装方式选 **Symlink** 可让技能随仓库更新即时生效；选 **Copy** 则生成独立副本
 - 仓库需已推送到 GitHub 且公开；未推送时可改用本地路径：`npx skills add /path/to/kanxiang`
-- 管理命令：`npx skills list` 查看、`npx skills update` 更新、`npx skills remove human-physiognomy` 卸载
+- 管理命令：`npx skills list` 查看、`npx skills update` 更新、`npx skills remove <技能名>` 卸载
+
+### 本仓库技能一览
+
+| 技能 | 用途 | 输入 | 输出 |
+|------|------|------|------|
+| [`human-physiognomy`](skills/human-physiognomy/SKILL.md) | 给人看相：面相、手相、骨相、体相综合分析，依据《麻衣神相》《冰鉴》等经典相书 | 人脸 / 手掌 / 骨骼 / 全身照片 | Markdown 分析报告（性格、运势、建议） |
+| [`cat-physiognomy`](skills/cat-physiognomy/SKILL.md) | 给猫看相：辨识外观品种，按《猫苑》《猫乘》等古籍取趣味解读 | 一张或多张猫咪照片 | 3:4 撕纸拼贴风海报（部位标注解读） |
 
 ### 环境要求
 - **Node.js 22.20+**（skills CLI 运行要求，[安装指南](https://nodejs.org)）
@@ -66,7 +73,12 @@ npx skills add timerzz/kanxiang --skill human-physiognomy -a opencode
    技能会自动识别照片类型并进行分析
    ```
 
-### 支持的分析类型
+3. **给猫看相**：上传猫咪照片，说明要给猫看相，即调用 `cat-physiognomy` 生成海报：
+   ```
+   给我家猫看看相，做张海报 [上传猫咪照片]
+   ```
+
+### 支持的分析类型（human-physiognomy）
 
 | 类型 | 说明 | 照片要求 |
 |------|------|---------|
@@ -194,6 +206,28 @@ npx skills add timerzz/kanxiang --skill human-physiognomy -a opencode
 - 注意保持适度运动，避免久坐
 - 建议增加柔韧性训练
 ```
+
+---
+
+### 示例 4：给猫看相（cat-physiognomy）
+
+> 输入：`给我家猫看看相，做张海报 [上传猫咪照片]`
+
+猫技能不产出文字报告，而是把猫照做成带部位解读的海报：
+
+```
+用户 ❯ 帮我看看我家猫，做一张相猫海报
+[上传猫咪照片]
+
+猫相小笺 ❯ 已生成 3:4 撕纸拼贴风海报：
+  中央 = 猫咪照片剪贴（保留脸形、眼色、花纹与姿势）
+  纸片标注（示意）：
+    金眸生辉｜古称"金眼夜明灯"，取个炯炯有神的意头
+    头面贵圆｜头面圆润，古籍有"头面贵圆"之说
+  画面底部一行小字：古籍趣味解读，仅供娱乐
+```
+
+说明：猫技能只解读照片可见的外观与花色，不作品种血统、性格、健康或寿命的断言；外观解读均来自 [相猫古籍笔记](skills/cat-physiognomy/references/)。
 
 ---
 
