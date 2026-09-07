@@ -11,6 +11,8 @@
 
 基于传统相术的图片分析技能，支持面相、手相、骨相、体相四大类相术分析
 
+> 本仓库是技能集合：`skills/human-physiognomy/`（给人看相，本 README 所述）与 `skills/cat-physiognomy/`（给猫看相）。
+
 ⚠️ **本分析仅供文化参考和娱乐，不宜迷信。现代科学对相术的预测能力尚无定论。**
 
 [功能特性](#功能特性) · [使用示例](#使用示例) · [知识来源](#知识来源) · [注意事项](#注意事项)
@@ -19,20 +21,28 @@
 
 ## 安装
 
-### Claude Code
-> **重要**：Claude Code 从 **git 仓库根目录** 的 `.claude/skills/` 查找 skill。请在正确的位置执行。
+使用 [skills CLI](https://skills.sh)（`npx skills`）安装。本仓库是技能集合，含 `human-physiognomy`（给人看相，本 README 所述）与 `cat-physiognomy`（给猫看相）两个技能：
 
 ```bash
-# 安装到当前项目（在 git 仓库根目录执行）
-mkdir -p .claude/skills
-git clone https://github.com/yourusername/kanxiang .claude/skills/kanxiang
+# 安装到当前项目（自动检测已安装的 agent，如 Claude Code）
+npx skills add timerzz/kanxiang --skill human-physiognomy
 
-# 或安装到全局（所有项目都能用）
-git clone https://github.com/yourusername/kanxiang ~/.claude/skills/kanxiang
+# 安装到全局（所有项目都能用）
+npx skills add timerzz/kanxiang --skill human-physiognomy -g
+
+# 指定目标 agent
+npx skills add timerzz/kanxiang --skill human-physiognomy -a opencode
 ```
 
+说明：
+- 不带 `--skill` 时进入交互选择，可勾选本仓库全部技能
+- 交互安装方式选 **Symlink** 可让技能随仓库更新即时生效；选 **Copy** 则生成独立副本
+- 仓库需已推送到 GitHub 且公开；未推送时可改用本地路径：`npx skills add /path/to/kanxiang`
+- 管理命令：`npx skills list` 查看、`npx skills update` 更新、`npx skills remove human-physiognomy` 卸载
+
 ### 环境要求
-- **Claude Code**：免费安装，需要 Node.js 18+（[安装指南](https://docs.anthropic.com/en/docs/claude-code)）
+- **Node.js 22.20+**（skills CLI 运行要求，[安装指南](https://nodejs.org)）
+- **Claude Code**（安装到 Claude 时）：免费安装（[安装指南](https://docs.anthropic.com/en/docs/claude-code)）
 - **视觉分析能力**：需要使用支持视觉分析的模型（如 Claude 4.6 Sonnet）
 - **API 消耗**：每次分析大约消耗 2k-5k tokens，取决于照片复杂度和分析深度
 - **付费方式**（二选一）：
@@ -242,17 +252,21 @@ git clone https://github.com/yourusername/kanxiang ~/.claude/skills/kanxiang
 
 ## 项目结构
 
-本项目遵循 [AgentSkills](https://agentskills.io) 开放标准：
+每个技能目录遵循 [AgentSkills](https://agentskills.io) 开放标准：
 
 ```
-kanxiang/
-├── SKILL.md           # 技能入口（官方 frontmatter）
-├── README.md          # 本文件
-└── references/         # 规则知识库
-    ├── mianxiang.md   # 面相规则（基于《麻衣神相》等）
-    ├── shouxiang.md   # 手相规则（基于《神相全编》等）
-    ├── guxiang.md     # 骨相规则（基于《太清神鉴》等）
-    └── tixiang.md     # 体相规则（基于《冰鉴》等）
+kanxiang/                         # 仓库根目录（技能集合）
+├── skills/
+│   ├── human-physiognomy/        # 给人看相技能（本 README 介绍对象）
+│   │   ├── SKILL.md              # 技能入口（官方 frontmatter）
+│   │   └── references/           # 规则知识库
+│   │       ├── mianxiang.md      # 面相规则（基于《麻衣神相》等）
+│   │       ├── shouxiang.md      # 手相规则（基于《神相全编》等）
+│   │       ├── guxiang.md        # 骨相规则（基于《太清神鉴》等）
+│   │       └── tixiang.md        # 体相规则（基于《冰鉴》等）
+│   └── cat-physiognomy/          # 给猫看相技能
+├── README.md                     # 本文件
+└── LICENSE
 ```
 
 ---

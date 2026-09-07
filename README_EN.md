@@ -11,6 +11,8 @@
 
 An image analysis skill based on traditional Chinese physiognomy, supporting four major categories: facial reading (Mianxiang), palmistry (Shouxiang), bone structure reading (Guxiang), and body physiognomy (Tixiang).
 
+> This repository is a skill collection: `skills/human-physiognomy/` (human physiognomy, documented in this README) and `skills/cat-physiognomy/` (cat physiognomy).
+
 ⚠️ **This analysis is for cultural reference and entertainment only. Modern science has not reached a consensus on the predictive ability of physiognomy.**
 
 [Features](#features) · [Examples](#examples) · [Knowledge Sources](#knowledge-sources) · [Important Notes](#important-notes)
@@ -19,20 +21,28 @@ An image analysis skill based on traditional Chinese physiognomy, supporting fou
 
 ## Installation
 
-### Claude Code
-> **Important**: Claude Code looks for skills in `.claude/skills/` from the **git repository root**. Execute in the correct location.
+Install with the [skills CLI](https://skills.sh) (`npx skills`). This repository is a skill collection containing `human-physiognomy` (human physiognomy, documented in this README) and `cat-physiognomy` (cat physiognomy):
 
 ```bash
-# Install to current project (execute in git repository root)
-mkdir -p .claude/skills
-git clone https://github.com/yourusername/kanxiang .claude/skills/kanxiang
+# Install to current project (auto-detects installed agents, e.g. Claude Code)
+npx skills add timerzz/kanxiang --skill human-physiognomy
 
-# Or install globally (available for all projects)
-git clone https://github.com/yourusername/kanxiang ~/.claude/skills/kanxiang
+# Install globally (available for all projects)
+npx skills add timerzz/kanxiang --skill human-physiognomy -g
+
+# Target a specific agent
+npx skills add timerzz/kanxiang --skill human-physiognomy -a opencode
 ```
 
+Notes:
+- Omitting `--skill` opens an interactive picker where you can select all skills in this repo
+- At the install prompt choose **Symlink** so skills stay in sync with the repo, or **Copy** for independent copies
+- The repo must be pushed to GitHub and public; before that, install from a local path instead: `npx skills add /path/to/kanxiang`
+- Management commands: `npx skills list` to view, `npx skills update` to update, `npx skills remove human-physiognomy` to uninstall
+
 ### Requirements
-- **Claude Code**: Free installation, requires Node.js 18+ ([Installation Guide](https://docs.anthropic.com/en/docs/claude-code))
+- **Node.js 22.20+** (required by the skills CLI, [installation guide](https://nodejs.org))
+- **Claude Code** (when installing to Claude): free installation ([guide](https://docs.anthropic.com/en/docs/claude-code))
 - **Visual Analysis**: Requires a model with vision capabilities (e.g., Claude 4.6 Sonnet)
 - **API Usage**: Each analysis consumes approximately 2k-5k tokens, depending on photo complexity and analysis depth
 - **Payment Options** (choose one):
@@ -242,17 +252,21 @@ This skill's rule knowledge base is compiled from the following classic physiogn
 
 ## Project Structure
 
-This project follows the [AgentSkills](https://agentskills.io) open standard:
+Each skill directory follows the [AgentSkills](https://agentskills.io) open standard:
 
 ```
-kanxiang/
-├── SKILL.md           # Skill entry (official frontmatter)
-├── README.md          # This file
-└── references/         # Rule knowledge base
-    ├── mianxiang.md   # Face reading rules (based on "Mayi Shenxiang", etc.)
-    ├── shouxiang.md   # Palmistry rules (based on "Shenxiang Quanbian", etc.)
-    ├── guxiang.md     # Bone reading rules (based on "Taiqing Shenjian", etc.)
-    └── tixiang.md     # Body physiognomy rules (based on "Bingjian", etc.)
+kanxiang/                         # Repository root (skill collection)
+├── skills/
+│   ├── human-physiognomy/        # Human physiognomy skill (documented in this README)
+│   │   ├── SKILL.md              # Skill entry (official frontmatter)
+│   │   └── references/           # Rule knowledge base
+│   │       ├── mianxiang.md      # Face reading rules (based on "Mayi Shenxiang", etc.)
+│   │       ├── shouxiang.md      # Palmistry rules (based on "Shenxiang Quanbian", etc.)
+│   │       ├── guxiang.md        # Bone reading rules (based on "Taiqing Shenjian", etc.)
+│   │       └── tixiang.md        # Body physiognomy rules (based on "Bingjian", etc.)
+│   └── cat-physiognomy/          # Cat physiognomy skill
+├── README.md                     # This file
+└── LICENSE
 ```
 
 ---
