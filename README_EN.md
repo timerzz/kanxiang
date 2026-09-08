@@ -221,14 +221,16 @@ User ❯ Give my cat a physiognomy reading and make a poster
 
 Cat Physiognomy Skill ❯ Generated a 3:4 aged-cream-paper torn poster:
   Center = cat photo cutout (face shape, eye color, coat pattern and pose preserved)
-  Anti-theft tag = 银渐层 (silver shaded) — clipped to the neck
+  Anti-theft tag = 银渐层 (silver shaded) — pierces the paper, clipped at the neck
   Paper notes (illustrative):
-    金眸生辉 (golden eyes aglow)｜eyes like amber light
-    爱蜷成团 (loves curling up)｜sleeps like a meditating monk
+    金眸生辉 (golden eyes aglow)
+    eyes like amber light ——《相猫经》
+    爱蜷成团 (loves curling up)
+    sleeps like a meditating monk
     不是猫的话，大概有当宇航员的天赋 (free-floating fantasy note)
 ```
 
-Note: the poster is playful entertainment. The breed is written straight on the anti-theft tag as a common Chinese market name — no pedigree or breed-certificate claim. Readings blend the [classical cat-lore notes](skills/cat-physiognomy/references/) with modern knowledge (incl. cat behavior research); ungrounded fantasy notes are allowed, while medical/health content, negative omens and "studies show" phrasing are not. Sources are summarized in one line in the chat reply only.
+Note: the poster is playful entertainment. The breed is written straight on the anti-theft tag (which pierces the cat's paper) as a common Chinese market name — no pedigree or breed-certificate claim. Readings blend the [classical cat-lore notes](skills/cat-physiognomy/references/) with modern knowledge (incl. cat behavior research); ungrounded fantasy notes are allowed, while medical/health content, negative omens and "studies show" phrasing are not. Paper notes with a solid classical source may carry a small "——《相猫经》" suffix; the full source line stays in the chat reply only.
 
 ---
 
