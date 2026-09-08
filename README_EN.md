@@ -12,7 +12,7 @@
 This repository is a collection of two physiognomy skills:
 
 - **`human-physiognomy`**: for humans — image analysis based on traditional Chinese physiognomy, covering facial reading (Mianxiang), palmistry (Shouxiang), bone reading (Guxiang), and body physiognomy (Tixiang)
-- **`cat-physiognomy`**: for cats — upload cat photos, generate a fun interpretive poster grounded in classical cat-lore texts
+- **`cat-physiognomy`**: for cats — upload cat photos, generate a torn-paper poster blending classical cat-lore, modern knowledge and playful imagination
 
 ⚠️ **This analysis is for cultural reference and entertainment only. Modern science has not reached a consensus on the predictive ability of physiognomy.**
 
@@ -45,7 +45,7 @@ Notes:
 | Skill | Purpose | Input | Output |
 |-------|---------|-------|--------|
 | [`human-physiognomy`](skills/human-physiognomy/SKILL.md) | For humans: face, palm, bone and body reading per classic texts such as 《麻衣神相》 and 《冰鉴》 | Face / palm / bone / full-body photos | Markdown report (personality, fortune, advice) |
-| [`cat-physiognomy`](skills/cat-physiognomy/SKILL.md) | For cats: identify apparent traits and interpret them per classical cat-lore notes such as 《猫苑》 and 《猫乘》 | One or more cat photos | 3:4 torn-paper collage poster (annotated parts) |
+| [`cat-physiognomy`](skills/cat-physiognomy/SKILL.md) | For cats: breed written straight on an anti-theft-tag label; fun readings from three sources — classical lore, modern knowledge, wild imagination | One or more cat photos | 3:4 aged-cream-paper torn poster (breed tag + part notes) |
 
 ### Requirements
 - **Node.js 22.20+** (required by the skills CLI, [installation guide](https://nodejs.org))
@@ -213,21 +213,22 @@ Kanxiang Skill ❯ # Physiognomy Analysis Report
 
 > Input: `Give my cat a reading and make a poster [upload cat photo]`
 
-The cat skill produces a poster rather than a text report:
+The cat skill produces a poster rather than a text report (no title, no source or disclaimer line on the poster):
 
 ```
 User ❯ Give my cat a physiognomy reading and make a poster
 [Upload cat photo]
 
-Cat Physiognomy Skill ❯ Generated a 3:4 torn-paper collage poster:
+Cat Physiognomy Skill ❯ Generated a 3:4 aged-cream-paper torn poster:
   Center = cat photo cutout (face shape, eye color, coat pattern and pose preserved)
+  Anti-theft tag = 银渐层 (silver shaded) — clipped to the neck
   Paper notes (illustrative):
-    金眸生辉 (golden eyes aglow)｜classical saying "金眼夜明灯" — a bright, spirited omen
-    头面贵圆 (rounded head and face)｜classics value a rounded head and face
-  Small line at the bottom: 古籍趣味解读，仅供娱乐 (classical-text fun reading, entertainment only)
+    金眸生辉 (golden eyes aglow)｜eyes like amber light
+    爱蜷成团 (loves curling up)｜sleeps like a meditating monk
+    不是猫的话，大概有当宇航员的天赋 (free-floating fantasy note)
 ```
 
-Note: the cat skill only interprets what is actually visible in the photos — apparent coat/breed traits, markings and posture. It makes no claims about pedigree, personality, health, lifespan or mousing ability. All readings follow the [classical cat-lore notes](skills/cat-physiognomy/references/).
+Note: the poster is playful entertainment. The breed is written straight on the anti-theft tag as a common Chinese market name — no pedigree or breed-certificate claim. Readings blend the [classical cat-lore notes](skills/cat-physiognomy/references/) with modern knowledge (incl. cat behavior research); ungrounded fantasy notes are allowed, while medical/health content, negative omens and "studies show" phrasing are not. Sources are summarized in one line in the chat reply only.
 
 ---
 

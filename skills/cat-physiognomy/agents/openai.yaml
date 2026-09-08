@@ -1,4 +1,4 @@
 interface:
   display_name: "猫相小笺"
-  short_description: "根据猫咪照片与四部古籍笔记，制作带部位解读的竖版撕纸拼贴海报"
+  short_description: "根据猫咪照片融合古籍相猫、现代通识与趣味脑洞，制作带品种防盗扣与撕纸纸片标注的竖版海报"
   default_prompt: "请用 $cat-physiognomy 阅读我上传的猫咪照片，辨识外观品种，并制作一张 3:4 的撕纸风相猫海报。"
