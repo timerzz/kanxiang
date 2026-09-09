@@ -224,9 +224,9 @@ Cat Physiognomy Skill ❯ Generated a 3:4 aged-cream-paper torn poster:
   Anti-theft tag = 银渐层 (silver shaded) — pierces the paper, clipped at the neck
   Paper notes (illustrative):
     金眸生辉 (golden eyes aglow)
-    eyes like amber light ——《相猫经》
+    eyes carry gold — rich and carefree from age one ——《相猫经》
     爱蜷成团 (loves curling up)
-    sleeps like a meditating monk
+    睡相圆满，一生安稳少波折 (a full-circle sleep, a life of calm)
     不是猫的话，大概有当宇航员的天赋 (free-floating fantasy note)
 ```
 
